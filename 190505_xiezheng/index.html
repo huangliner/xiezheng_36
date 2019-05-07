@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* //冒泡排序:把所有的数据按照一定的顺序进行排列(从小到大，从大到小)
+			var arr =[100,200,0,30,110];
+			//循环控制比较的轮数
+			for(var i=0;i<arr.length;i++){
+				//控制比较的次数
+				for(var j = 0 ; j<arr.length-1-i;j++){
+					//判断大小的比较
+					if(arr[j]<arr[j+1]){
+						var temp = arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+					}
+				}
+			}
+			console.log(arr); */
+			var arr = [100, 20, 4, 44, 5];
+			//判断比较的轮数
+			for (var i = 0; i < arr.length; i++) {
+				//循环对于一个值与剩余值的比较大小
+				for (var f = 0; f < arr.length - i; f++) {
+					//判断数值的大小;
+					if (arr[f] > arr[f + 1]) {
+						var tep = arr[f];
+						arr[f] = arr[f + 1];
+						arr[f + 1] = tep;
+					}
+				}
+			}
+			console.log(arr);
+			//第二种方式:选择器方法排序
+			var array1 = [123, 222, 7, 67, 3, 58, 92];
+			function cmp(a, b) {
+				return a - b;
+			};
+			array1.sort(cmp); //直接将cmp放入sort中，不要加括号！！
+			console.log(String(array1)); //3,7,58,67,92,123,222
+			//第三种方式:插入排序
+			function directInsertionSort(array) {
+				var length = array.length,index, current;
+				for (var i = 1; i < length; i++) {
+					index = i - 1; //待比较元素的下标
+					current = array[i]; //当前元素
+					while (index >= 0 && array[index] > current) { //前置条件之一:待比较元素比当前元素大
+						array[index + 1] = array[index]; //将待比较元素后移一位
+						index--; //游标前移一位
+						//console.log(array);
+					}
+					if (index + 1 != i) { //避免同一个元素赋值给自身
+						array[index + 1] = current; //将当前元素插入预留空位
+						//console.log(array);
+					}
+				}
+				return array;
+			}
+			console.log(directInsertionSort([7,34,8,2,78]));
+		</script>
+	</head>
+	<body>
+	</body>
+</html> 
